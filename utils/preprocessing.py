@@ -59,6 +59,8 @@ def filter_data(path_data, splits, keeping_lengths, path_output, holdout=10, dum
 
 
 if __name__ == '__main__':
+    random.seed(2021)
+
     path_home = os.path.expanduser('~')
     path_data = os.path.join(path_home, 'spotify_mpd/data')
     path_output = os.path.join(path_home, 'spotify_mpd/processed')
