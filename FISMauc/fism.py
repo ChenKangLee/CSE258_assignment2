@@ -40,7 +40,7 @@ class FISMauc:
             loss += - torch.log(torch.sigmoid(score1 - score2)) + reg1 + reg2
         return loss, auc / len(sample_playlists)
 
-    def train(self, Nsamples=64, Nsteps=1000):
+    def train(self, Nsamples=32, Nsteps=10000):
         smoothed_train_auc = smoothed_valid_auc = 0.5
         with trange(Nsteps) as t:
             for step in t:
