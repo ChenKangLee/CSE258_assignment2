@@ -23,17 +23,16 @@ def filter_data(path_data, splits, keeping_lengths, path_output, holdout=10, dum
             if len(playlist['tracks']) in keeping_lengths:
                 tracks = [t['track_uri'] for t in playlist['tracks']]
                 
-                # only first `holdout` is visible
                 seq_entry = {
-                    'pid': sample['pid'],
+                    'pid': pid,
                     'visible_tracks': list(tracks[:holdout]),
                     'withheld_tracks': list(tracks[holdout:]),
                 }
                 
-                # random holdout
                 random.shuffle(tracks)
+                
                 rand_entry = {
-                    'pid': sample['pid'],
+                    'pid': pid,
                     'visible_tracks': list(tracks[:holdout]),
                     'withheld_tracks': list(tracks[holdout:]),
                 }
